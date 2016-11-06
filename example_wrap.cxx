@@ -1503,8 +1503,8 @@ static swig_module_info swig_module = {swig_types, 1, 0, 0, 0, 0};
 
 /* Put headers and other declarations here */
 extern int My_variable;
-extern int    fact(int);
-extern int    my_mod(int n, int m);
+extern int fact(int);
+extern int my_mod(int n, int m);
 
 
 SWIGINTERN
