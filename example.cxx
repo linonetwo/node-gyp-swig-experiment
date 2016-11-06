@@ -10,5 +10,5 @@ int fact(int n) {
 
 /* Compute n mod m */
 int my_mod(int n, int m) {
-  return(n % m);
+  return(fact(n) % m);
 }

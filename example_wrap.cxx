@@ -1501,9 +1501,7 @@ static swig_module_info swig_module = {swig_types, 1, 0, 0, 0, 0};
 #include <stdexcept>
 
 
-/* Put headers and other declarations here */
-extern int My_variable;
-extern int fact(int);
+#include "example.h"
 extern int my_mod(int n, int m);
 
 
@@ -1529,73 +1527,6 @@ v8::Handle<v8::Value> SWIG_From_int  (int value)
 #define SWIGV8_INIT example_initialize
 
 
-
-
-static void _wrap_My_variable_set(v8::Local<v8::String> property, v8::Local<v8::Value> value,
-  const SwigV8PropertyCallbackInfoVoid &info) {
-  SWIGV8_HANDLESCOPE();
-  
-  int arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  
-  ecode1 = SWIG_AsVal_int(value, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "My_variable_set" "', argument " "1"" of type '" "int""'");
-  } 
-  arg1 = (int)(val1);
-  My_variable = arg1;
-  
-  
-  goto fail;
-fail:
-  return;
-}
-
-
-static SwigV8ReturnValue _wrap_My_variable_get(v8::Local<v8::String> property, const SwigV8PropertyCallbackInfo &info) {
-  SWIGV8_HANDLESCOPE();
-  
-  v8::Handle<v8::Value> jsresult;
-  int result;
-  
-  result = (int)My_variable;
-  jsresult = SWIG_From_int((int)(result));
-  
-  SWIGV8_RETURN_INFO(jsresult, info);
-  
-  goto fail;
-fail:
-  SWIGV8_RETURN_INFO(SWIGV8_UNDEFINED(), info);
-}
-
-
-static SwigV8ReturnValue _wrap_fact(const SwigV8Arguments &args) {
-  SWIGV8_HANDLESCOPE();
-  
-  v8::Handle<v8::Value> jsresult;
-  int arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  int result;
-  
-  if(args.Length() != 1) SWIG_exception_fail(SWIG_ERROR, "Illegal number of arguments for _wrap_fact.");
-  
-  ecode1 = SWIG_AsVal_int(args[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "fact" "', argument " "1"" of type '" "int""'");
-  } 
-  arg1 = (int)(val1);
-  result = (int)fact(arg1);
-  jsresult = SWIG_From_int((int)(result));
-  
-  
-  SWIGV8_RETURN(jsresult);
-  
-  goto fail;
-fail:
-  SWIGV8_RETURN(SWIGV8_UNDEFINED());
-}
 
 
 static SwigV8ReturnValue _wrap_my_mod(const SwigV8Arguments &args) {
@@ -1953,8 +1884,7 @@ void SWIGV8_INIT (v8::Handle<v8::Object> exports, v8::Handle<v8::Object> /*modul
   
 
   /* register wrapper functions */
-  SWIGV8_AddStaticVariable(exports_obj, "My_variable", _wrap_My_variable_get, _wrap_My_variable_set);
-
+  
 
   /* setup inheritances */
   
@@ -1963,8 +1893,7 @@ void SWIGV8_INIT (v8::Handle<v8::Object> exports, v8::Handle<v8::Object> /*modul
   
 
   /* add static class functions and variables */
-  SWIGV8_AddStaticFunction(exports_obj, "fact", _wrap_fact);
-SWIGV8_AddStaticFunction(exports_obj, "my_mod", _wrap_my_mod);
+  SWIGV8_AddStaticFunction(exports_obj, "my_mod", _wrap_my_mod);
 
 
   /* register classes */
